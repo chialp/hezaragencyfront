@@ -1,0 +1,51 @@
+{
+  "name": "hezar",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "analyze": "cross-env ANALYZE=true next build"
+  },
+  "dependencies": {
+    "@babylonjs/core": "^8.50.0",
+    "@babylonjs/loaders": "^8.50.0",
+    "@next/bundle-analyzer": "^16.1.6",
+    "@tiptap/core": "^3.18.0",
+    "@tiptap/extension-color": "^3.18.0",
+    "@tiptap/extension-text-style": "^3.18.0",
+    "@tiptap/pm": "^3.18.0",
+    "@tiptap/react": "^3.18.0",
+    "@tiptap/starter-kit": "^3.18.0",
+    "cross-env": "^7.0.3",
+    "framer-motion": "^12.23.26",
+    "lucide-react": "^0.545.0",
+    "next": "15.5.4",
+    "nprogress": "^0.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-hot-toast": "^2.6.0",
+    "use-debounce": "^10.1.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "18.19.41",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.1",
+    "autoprefixer": "^10.4.21",
+    "critters": "^0.0.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^3.4.18",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "browserslist": [
+  "last 2 chrome versions",
+  "last 2 firefox versions",
+  "last 2 safari versions"
+]
+}

@@ -1,0 +1,16 @@
+{
+  "hero_title": "Start your programming journey here!",
+  "hero_subtitle": "Stay up to date with tutorials, news, and expert articles in the tech world and build your own growth path.",
+  "email_placeholder": "Enter your email...",
+  "join_now": "Join the Newsletter",
+  "read_more": "Read More",
+
+  "card_title1": "Web Development Tutorials",
+  "card_dis1": "Learn how to build modern and responsive websites using HTML, CSS, and JavaScript.",
+
+  "card_title2": "Latest Tech News",
+  "card_dis2": "Stay updated with the latest trends in AI, new frameworks, and developer tools.",
+
+  "card_title3": "Full Stack Expert Articles",
+  "card_dis3": "In-depth articles on software architecture, performance optimization, and best development practices."
+}

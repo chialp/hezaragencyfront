@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* تنظیمات پایه بدون ایجاد اختلال در هیدریشن */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  /* حذف اسنپ از بادی برای جلوگیری از تداخل با اسکریپت‌ها */
+}
+
+/* به جای اعمال روی body، یک کلاس مخصوص بسازید */
+.scroll-container {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-snap-align: start;
+  height: 100vh;
+  width: 100%;
+}
+
+/* RTL */
+.rtl {
+  direction: rtl;
+}
+
+/* افکت‌های 3D - کاملاً صحیح هستند */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.rotate-x-12 { transform: rotateX(12deg); }
+.rotate-y-12 { transform: rotateY(12deg); }
+.translate-z-5 { transform: translateZ(5px); }
+.translate-z-10 { transform: translateZ(10px); }
+.translate-z-20 { transform: translateZ(20px); }

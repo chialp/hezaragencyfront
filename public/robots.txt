@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /13x77/
+Disallow: /dashboard/admin
+Disallow: /dashboard/author
+Allow: /
+
+Sitemap: https://hezaragency.com/sitemap.xml
