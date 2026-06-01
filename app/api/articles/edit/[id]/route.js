@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import mongoose from "mongoose";
 import Article from "@/models/Article";
 import connectDB from "@/lib/db";
+import { saveUpload } from "@/lib/saveUpload";
 
 export const dynamic = "force-dynamic";
 
@@ -12,12 +13,6 @@ function safeJsonParse(value, fallback) {
   } catch {
     return fallback;
   }
-}
-
-async function fileToBase64(file) {
-  const bytes = await file.arrayBuffer();
-  const buffer = Buffer.from(bytes);
-  return `data:${file.type};base64,${buffer.toString("base64")}`;
 }
 
 function normalizeMultilangField(value, defaultValue = { fa: "", en: "", ku: "" }) {
@@ -107,13 +102,22 @@ export async function PUT(req, { params }) {
     );
 
     const rawBlocks = safeJsonParse(formData.get("blocks"), existingArticle.blocks || []);
-    const featured = formData.get("featured") === "true";
+
+    const featured =
+      formData.get("featured") !== null
+        ? formData.get("featured") === "true"
+        : existingArticle.featured || false;
+
     const status = formData.get("status") || existingArticle.status || "published";
     const language = formData.get("language") || existingArticle.language || "multi";
-    const seoScore = Number(formData.get("seoScore") || existingArticle.seoScore || 0);
-    const wordCount = Number(formData.get("wordCount") || existingArticle.wordCount || 0);
+    const seoScore = Number(
+      formData.get("seoScore") ?? existingArticle.seoScore ?? 0
+    );
+    const wordCount = Number(
+      formData.get("wordCount") ?? existingArticle.wordCount ?? 0
+    );
     const readabilityScore = Number(
-      formData.get("readabilityScore") || existingArticle.readabilityScore || 0
+      formData.get("readabilityScore") ?? existingArticle.readabilityScore ?? 0
     );
 
     if (!title.fa?.trim()) {
@@ -147,7 +151,7 @@ export async function PUT(req, { params }) {
     const posterFile = formData.get("poster");
 
     if (posterFile && typeof posterFile === "object" && posterFile.size > 0) {
-      poster = await fileToBase64(posterFile);
+      poster = await saveUpload(posterFile, "uploads/articles/posters");
     }
 
     const uploadedFiles = formData.getAll("files");
@@ -174,8 +178,14 @@ export async function PUT(req, { params }) {
           fileIndex += 1;
 
           if (currentFile && typeof currentFile === "object" && currentFile.size > 0) {
-            const fileData = await fileToBase64(currentFile);
-            normalizedBlock.value = fileData;
+            const folder =
+              normalizedBlock.type === "image"
+                ? "uploads/articles/blocks/images"
+                : "uploads/articles/blocks/videos";
+
+            const filePath = await saveUpload(currentFile, folder);
+
+            normalizedBlock.value = filePath;
             normalizedBlock.data = {
               ...normalizedBlock.data,
               fileName: currentFile.name,
