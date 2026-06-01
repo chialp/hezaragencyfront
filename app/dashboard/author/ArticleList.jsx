@@ -62,7 +62,7 @@ export default function ArticleList({ setEditingArticle, setActiveTab }) {
   const fetchArticles = async () => {
     try {
       setLoading(true);
-      const res = await fetch("https://hezaragencyback.liara.run/api/articles", {
+      const res = await fetch("/api/articles", {
         credentials: "include",
         cache: "no-store" // اضافه کردن عدم کش برای دریافت دیتای تازه
       });
@@ -103,7 +103,7 @@ export default function ArticleList({ setEditingArticle, setActiveTab }) {
 
     try {
       const res = await fetch(
-        `https://hezaragencyback.liara.run/api/articles/delete/${id}`,
+        `/api/articles/delete/${id}`,
         {
           method: "DELETE",
           credentials: "include",

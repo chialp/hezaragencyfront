@@ -13,7 +13,7 @@ export default function LoginPage() {
     e.preventDefault();
     setError("");
     try {
-      const res = await fetch(`https://hezaragencyback.liara.run/api/auth/login`, {
+      const res = await fetch(`/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include", // ⚡ اضافه شد

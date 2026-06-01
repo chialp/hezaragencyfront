@@ -14,7 +14,7 @@ export default function Header() {
 
   const fetchUserProfile = async () => {
     try {
-      const res = await fetch("https://hezaragencyback.liara.run/api/auth/author/profile", {
+      const res = await fetch("api/auth/author/profile", {
         credentials: "include",
       });
       
@@ -35,7 +35,7 @@ export default function Header() {
     if (!confirm("آیا از خروج از حساب کاربری اطمینان دارید؟")) return;
 
     try {
-      const res = await fetch("https://hezaragencyback.liara.run/api/auth/logout", {
+      const res = await fetch("/api/auth/logout", {
         method: "POST",
         credentials: "include",
       });

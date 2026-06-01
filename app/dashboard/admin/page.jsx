@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-const API = "https://hezaragencyback.liara.run/api/auth";
+const API = "/api/auth";
 
 export default function AdminAuthorsPanel() {
   const [authors, setAuthors] = useState([]);

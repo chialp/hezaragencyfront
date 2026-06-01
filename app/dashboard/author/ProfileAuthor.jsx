@@ -20,7 +20,7 @@ export default function Profile() {
       setLoading(true);
       setError("");
       
-      const res = await fetch("https://hezaragencyback.liara.run/api/auth/author/profile", {
+      const res = await fetch("/api/auth/author/profile", {
         credentials: "include",
       });
       

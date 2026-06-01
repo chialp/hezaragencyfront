@@ -448,7 +448,7 @@ export default function ArticleEditor({
       });
 
       let url, method;
-      const baseUrl = "https://hezaragencyback.liara.run";
+      const baseUrl = "";
 
       if (editingArticle) {
         url = `${baseUrl}/api/articles/edit/${editingArticle._id}`;
